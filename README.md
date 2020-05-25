@@ -1,8 +1,8 @@
-# [Django Dashboard DattaAble](https://appseed.us/admin-dashboards/django-dashboard-dattaable)
+# [Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable)
 
 > **Open-Source Admin Dashboard** coded in **Django Framework** by **AppSeed** [Web App Generator](https://appseed.us/app-generator) - Features:
 
-- Sample UI Kit: **Datta Able Dashboard** (Lite Version) provided by **CodedThemes**
+- Sample UI Kit: **GradientAble Dashboard** (Lite Version) provided by **CodedThemes**
 - UI-Ready app, SQLite Database, Django Native ORM
 - Modular design, clean code-base
 - Session-Based Authentication, Forms validation
@@ -13,14 +13,14 @@
 
 > Links
 
-- [Django Dashboard DattaAble](https://django-dashboard-dattaable.appseed.us/) - LIVE Demo
-- [Django Dashboard DattaAble](https://appseed.us/admin-dashboards/django-dashboard-dattaable) - Official product page
+- [Django Dashboard GradientAble](https://django-dashboard-gradientable.appseed.us/) - LIVE Demo
+- [Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Official product page
 - More [Django Admin Dashboards](https://appseed.us/admin-dashboards/django) - index hosted by **AppSeed**
 - [Free Admin Dashboards](https://appseed.us/admin-dashboards/open-source) - index hosted by **AppSeed**
 
 <br />
 
-![Django Dashboard DattaAble - Open-Source template project provided by AppSeed.](https://raw.githubusercontent.com/app-generator/django-dashboard-dattaable/master/media/django-dashboard-dattaable-screen.png)
+![Django Dashboard GradientAble - Open-Source template project provided by AppSeed.](https://raw.githubusercontent.com/app-generator/django-dashboard-gradientable/master/media/django-dashboard-gradientable-screen.png)
 
 <br />
 
@@ -28,8 +28,8 @@
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/app-generator/django-dashboard-dattaable.git
-$ cd django-dashboard-dattaable
+$ git clone https://github.com/app-generator/django-dashboard-gradientable.git
+$ cd django-dashboard-gradientable
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
@@ -137,8 +137,8 @@ The application can be easily executed in a docker container. The steps:
 > Get the code
 
 ```bash
-$ git clone https://github.com/app-generator/django-dashboard-dattaable.git
-$ cd django-dashboard-dattaable
+$ git clone https://github.com/app-generator/django-dashboard-gradientable.git
+$ cd django-dashboard-gradientable
 ```
 
 > Start the app in Docker
@@ -203,4 +203,4 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 <br />
 
 ---
-[Django Dashboard DattaAble](https://appseed.us/admin-dashboards/django-dashboard-dattaable) - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
+[Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
