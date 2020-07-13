@@ -1,4 +1,4 @@
-# [Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable)
+# [Django Dashboard - GradientAble Design](https://appseed.us/admin-dashboards/django-dashboard-gradientable)
 
 > **Open-Source Admin Dashboard** coded in **Django Framework** by **AppSeed** [Web App Generator](https://appseed.us/app-generator) - Features:
 
@@ -13,10 +13,10 @@
 
 > Links
 
-- [Django Dashboard GradientAble](https://django-dashboard-gradientable.appseed.us/) - LIVE Demo
-- [Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Official product page
-- More [Django Admin Dashboards](https://appseed.us/admin-dashboards/django) - index hosted by **AppSeed**
-- [Free Admin Dashboards](https://appseed.us/admin-dashboards/open-source) - index hosted by **AppSeed**
+- [Django Dashboard - GradientAble Design](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Official product page
+- [Django Dashboard GradientAble Demo](https://django-dashboard-gradientable.appseed.us/) - LIVE App
+- More [Django Dashboards](https://appseed.us/admin-dashboards/django) - index hosted by **AppSeed**
+- More [Admin Dashboards](https://appseed.us/admin-dashboards) - index hosted by **AppSeed**
 
 <br />
 
@@ -214,4 +214,4 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 <br />
 
 ---
-[Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
+[Django Dashboard - GradientAble Design](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
