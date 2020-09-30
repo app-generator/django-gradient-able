@@ -1,4 +1,4 @@
-# [Django Dashboard - GradientAble Design](https://appseed.us/admin-dashboards/django-dashboard-gradientable)
+# [Django Dashboard GradientAble](https://appseed.us/admin-dashboards/django-dashboard-gradientable)
 
 > **Open-Source Admin Dashboard** coded in **Django Framework** by **AppSeed** [Web App Generator](https://appseed.us/app-generator) - Features:
 
@@ -13,8 +13,8 @@
 
 > Links
 
-- [Django Dashboard - GradientAble Design](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Official product page
-- [Django Dashboard GradientAble Demo](https://django-dashboard-gradientable.appseed.us/) - LIVE App
+- [Django Dashboard Gradient Able](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Official product page
+- [Django Dashboard Gradient Able - Demo](https://django-dashboard-gradientable.appseed.us/) - LIVE App
 - More [Django Dashboards](https://appseed.us/admin-dashboards/django) - index hosted by **AppSeed**
 - More [Admin Dashboards](https://appseed.us/admin-dashboards) - index hosted by **AppSeed**
 
