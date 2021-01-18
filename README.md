@@ -18,8 +18,8 @@ Gradient Able Bootstrap 4 Free/Lite Admin Template is a complete solution for yo
 
 > Links
 
-- [Django Dashboard Gradient Able](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Product page
-- [Django Dashboard Gradient Able - Demo](https://django-dashboard-gradientable.appseed.us/) - LIVE App
+- [Django Gradient Able](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Product page
+- [Django Gradient Able - Demo](https://django-gradient-able.appseed-srv1.com/) - LIVE App
 
 <br />
 
