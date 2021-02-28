@@ -18,7 +18,7 @@
 
 > Links
 
-- [Gradient Able Django](https://appseed.us/admin-dashboards/django-dashboard-gradientable) - Product page
+- [Gradient Able Django](https://appseed.us/admin-dashboards/django-gradient-able) - Product page
 - [Gradient Able Django - Demo](https://django-gradient-able.appseed-srv1.com/) - LIVE App
 
 <br />
