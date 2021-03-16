@@ -13,10 +13,13 @@ class Physical_Store(models.Model):
     city = models.CharField(max_length=255)
     province =models.CharField(max_length=255)
     country = models.CharField(max_length=255)
-    postal_code =models.CharField(max_length=255)
-    phone = models.IntegerField()
-    email = models.EmailField()
-    fax_number = models.IntegerField()
+    postal_code = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    fax_number = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['store_id']
 
     def get_store_id(self):
         return self.store_id
@@ -54,6 +57,9 @@ class Product(models.Model):
     quantity = models.IntegerField()
     product_weight = models.DecimalField(max_digits=5, decimal_places=2)
     store_id = models.ForeignKey(Physical_Store, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['product_id']
 
     def get_product_id(self):
         return self.product_id
@@ -114,11 +120,11 @@ class Information_Page(models.Model):
 class Manufacturer(models.Model):
     supplier_id = models.IntegerField(primary_key=True)
     supplier_name = models.CharField(max_length=255)
-    email = models.EmailField()
+    email = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
-    phone = models.IntegerField()
-    fax_number = models.IntegerField()
+    phone = models.CharField(max_length=255)
+    fax_number = models.CharField(max_length=255)
     province = models.CharField(max_length=255)
     street = models.CharField(max_length=255)
     postal_code = models.CharField(max_length=255)
@@ -162,7 +168,7 @@ class Member(models.Model):
     city = models.CharField(max_length=255)
     province = models.CharField(max_length=255)
     postal_code = models.CharField(max_length=255)
-    email_address = models.EmailField()
+    email_address = models.CharField(max_length=255)
 
     def get_member_id(self):
         return self.member_id
@@ -262,9 +268,9 @@ class Request(models.Model):
 class Shipper(models.Model):
     shipper_id = models.IntegerField(primary_key=True)
     shipper_name = models.CharField(max_length=255)
-    phone = models.IntegerField()
-    email = models.EmailField()
-    fax_number = models.IntegerField()
+    phone = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    fax_number = models.CharField(max_length=255)
 
     def get_shipper_id(self):
         return self.shipper_id

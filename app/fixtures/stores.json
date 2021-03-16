@@ -1,0 +1,30 @@
+[
+  {
+    "model": "app.Physical_Store",
+    "pk": 1,
+    "fields": {
+      "street": "University Drive",
+      "city": "Edmonton",
+      "province": "AB",
+      "country": "Canada",
+      "postal_code": "T2W 8L2",
+      "phone": "4035671203",
+      "email": "store1@test.com",
+      "fax_number": "9998887654"
+    }
+  },
+  {
+    "model": "app.Physical_Store",
+    "pk": 2,
+    "fields": {
+      "street": "Sait Drive",
+      "city": "Calgary",
+      "province": "AB",
+      "country": "Canada",
+      "postal_code": "T2X 0W2",
+      "phone": "5874579087",
+      "email": "store2@test.com",
+      "fax_number": "1234567891"
+    }
+  }
+]

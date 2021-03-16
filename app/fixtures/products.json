@@ -1,0 +1,28 @@
+[
+    {
+      "model": "app.Product",
+      "pk": 1,
+      "fields": {
+        "product_name": "iPhone 5",
+        "product_model": "5",
+        "product_type": "Cell Phone",
+        "price": 149.99,
+        "quantity": 12,
+        "product_weight": 178.23,
+        "store_id": 1
+      }
+    },
+    {
+      "model": "app.Product",
+      "pk": 2,
+      "fields": {
+        "product_name": "iPhone 12",
+        "product_model": "12",
+        "product_type": "Cell Phone",
+        "price": 1199.99,
+        "quantity": 145,
+        "product_weight": 143.12,
+        "store_id": 2
+      }
+    }
+  ]
