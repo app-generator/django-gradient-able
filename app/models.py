@@ -343,7 +343,7 @@ class Customer_Support(models.Model):
     cust_sup_lname = models.CharField(max_length=255)
     business_licence = models.ForeignKey(Inventory_Website, on_delete=models.CASCADE)
 
-    def cust_sup_id(self):
+    def get_cust_sup_id(self):
         return self.cust_sup_id
 
     def get_cust_sup_fname(self):
@@ -369,7 +369,7 @@ class Assist(models.Model):
     customer_id = models.ForeignKey(Individual_User, on_delete=models.CASCADE)
     cust_sup_id = models.ForeignKey(Customer_Support, on_delete=models.CASCADE)
 
-    def cust_sup_id(self):
+    def get_cust_sup_id(self):
         return self.cust_sup_id
 
     def get_customer_id(self):
