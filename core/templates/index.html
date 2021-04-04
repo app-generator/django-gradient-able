@@ -3,1575 +3,169 @@
 {% block title %} Dashboard {% endblock %} 
 
 <!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+    #invoice-POS{
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+    padding:2mm;
+    margin: 0 auto;
+    width: 44mm;
+    background: #FFF;
+    }
 
-{% block content %}	
+    h1{
+    font-size: 1.5em;
+    color: #222;
+    }
+    h2{font-size: .9em;}
+    h3{
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 2em;
+    }
+    p{
+    font-size: .7em;
+    color: #666;
+    line-height: 1.2em;
+    }
+    
+    #top, #mid,#bot{ /* Targets all id with 'col-' */
+    border-bottom: 1px solid #EEE;
+    }
 
+    #top{min-height: 100px;}
+    #mid{min-height: 80px;} 
+    #bot{ min-height: 50px;}
+
+    .info{
+    display: block;
+    /* float:left; */
+    margin-left: 0;
+    }
+    .title{
+    float: right;
+    }
+    .title p{text-align: right;} 
+    table{
+    width: 100%;
+    border-collapse: collapse;
+    }
+    td{
+    /* //padding: 5px 0 5px 15px;
+    //border: 1px solid #EEE */
+    }
+    .tabletitle{
+    /* //padding: 5px; */
+    font-size: .5em;
+    background: #EEE;
+    }
+    .service{border-bottom: 1px solid #EEE;}
+    .item{width: 24mm;}
+    .itemtext{font-size: .5em;}
+
+    #legalcopy{
+    margin-top: 5mm;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
     <!-- [ Main Content ] start -->
     <div class="pcoded-main-container">
         <div class="pcoded-content">
-            <!-- [ breadcrumb ] start -->
-            <!-- <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="page-header-title">
-                                <h5 class="m-b-10">Dashboard Analytics</h5>
-                            </div>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-                                <li class="breadcrumb-item"><a href="#!">Dashboard Analytics</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- [ breadcrumb ] end -->
             <!-- [ Main Content ] start -->
             <div class="row">
-                <!-- order-card start -->
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-blue order-card">
-                        <div class="card-body">
-                            <h6 class="text-white">Orders Received</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-shopping-cart float-left"></i><span>486</span></h2>
-                            <p class="m-b-0">Completed Orders<span class="float-right">351</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-green order-card">
-                        <div class="card-body">
-                            <h6 class="text-white">Total Sales</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-tag float-left"></i><span>1641</span></h2>
-                            <p class="m-b-0">This Month<span class="float-right">213</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-yellow order-card">
-                        <div class="card-body">
-                            <h6 class="text-white">Revenue</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-repeat float-left"></i><span>$42,562</span></h2>
-                            <p class="m-b-0">This Month<span class="float-right">$5,032</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3">
-                    <div class="card bg-c-red order-card">
-                        <div class="card-body">
-                            <h6 class="text-white">Total Profit</h6>
-                            <h2 class="text-right text-white"><i class="feather icon-award float-left"></i><span>$9,562</span></h2>
-                            <p class="m-b-0">This Month<span class="float-right">$542</span></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- order-card end -->
-                <!-- users visite start -->
-                <div class="col-md-12 col-xl-6">
-                    <div class="card">
+                <!-- seat-selection start -->
+                <div class="col-lg-12">
+                    <div class="card">                        
                         <div class="card-header">
-                            <h5>Unique Visitor</h5>
-                        </div>
-                        <div class="card-body pl-0 pb-0">
-                            <div id="unique-visitor-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-xl-6">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-body bg-patern">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <span>Customers</span>
-                                        </div>
-                                        <div class="col text-right">
-                                            <h2 class="mb-0">826</h2>
-                                            <span class="text-c-green">8.2%<i class="feather icon-trending-up ml-1"></i></span>
-                                        </div>
-                                    </div>
-                                    <div id="customer-chart"></div>
-                                    <div class="row mt-3">
-                                        <div class="col">
-                                            <h3 class="m-0"><i class="fas fa-circle f-10 m-r-5 text-success"></i>674</h3>
-                                            <span class="ml-3">New</span>
-                                        </div>
-                                        <div class="col">
-                                            <h3 class="m-0"><i class="fas fa-circle text-primary f-10 m-r-5"></i>182</h3>
-                                            <span class="ml-3">Return</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card bg-primary text-white">
-                                <div class="card-body bg-patern-white">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <span>Customers</span>
-                                        </div>
-                                        <div class="col text-right">
-                                            <h2 class="mb-0 text-white">826</h2>
-                                            <span class="text-white">8.2%<i class="feather icon-trending-up ml-1"></i></span>
-                                        </div>
-                                    </div>
-                                    <div id="customer-chart1"></div>
-                                    <div class="row mt-3">
-                                        <div class="col">
-                                            <h3 class="m-0 text-white"><i class="fas fa-circle f-10 m-r-5 text-success"></i>674</h3>
-                                            <span class="ml-3">New</span>
-                                        </div>
-                                        <div class="col">
-                                            <h3 class="m-0 text-white"><i class="fas fa-circle f-10 m-r-5 text-white"></i>182</h3>
-                                            <span class="ml-3">Return</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- users visite end -->
-
-
-                <!-- social statustic start -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card seo-card overflow-hidden">
-                        <div class="card-body seo-statustic">
-                            <i class="feather icon-save f-20 text-c-red"></i>
-                            <h5 class="mb-1">65%</h5>
-                            <p>Memory</p>
-                        </div>
-                        <div class="seo-chart">
-                            <div id="seo-card1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-4">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <i class="fa fa-envelope-open text-c-blue d-block f-40"></i>
-                            <h4 class="m-t-20"><span class="text-c-blue">8.62k</span> Subscribers</h4>
-                            <p class="m-b-20">Your main list is growing</p>
-                            <button class="btn btn-primary btn-sm btn-round">Manage List</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <i class="fab fa-twitter text-c-green d-block f-40"></i>
-                            <h4 class="m-t-20"><span class="text-c-blgreenue">+40</span> Followers</h4>
-                            <p class="m-b-20">Your main list is growing</p>
-                            <button class="btn btn-success btn-sm btn-round">Check them out</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- social statustic end -->
-                <!-- account-section start -->
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Activity Feed</h5>
+                            <h5>Product</h5>
                             <div class="card-header-right">
-                                <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="feather icon-more-horizontal"></i>
-                                    </button>
-                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
-                                    </ul>
-                                </div>
                             </div>
+                        </div>
+                            <div class="card-body">
+                                <div class="product_container" id="product_container">
+                                    <div class="image_container" id="product_image">
+                                        <img src="/static/assets/images/iPhone12.jpg" width="1000" height="400" id="productImage">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <h5 class="text-black">Product Name <span class="float-right productName"></span></h5>
+                                <h5 class="text-black">Store Available <span class="float-right storeAvailable"></span></h5>
+                                <h5 class="text-black">Product Description <span class="float-right productDescription"></span></h5>
+                                <h5 class="text-black">Price <span class="float-right productPrice"></span></h5>
+                                <h5 class="text-black">Manufacturer <span class="float-right productManufacturer"></span></h5>
+                                <button type="button" id="addcart" class="btn btn-primary mx-auto">Add to Cart</button>
+                            </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
+                        <div class="card-header">
+                            <h4>Cart</h4> 
+                            <form role="form" method="POST" action="">
+                                <select class="custom-select" id="productRem">
+                                    <option selected>Product Name</option>
+                                </select>
+                            </form>     
                         </div>
                         <div class="card-body">
-                            <ul class="feed-blog pl-0">
-                                <li class="active-feed">
-                                    <div class="feed-user-img">
-                                        <img src="/static/assets/images/user/avatar-4.jpg" class="img-radius " alt="User-Profile-Image">
-                                    </div>
-                                    <h6><span class="badge badge-danger">File</span> Eddie uploaded new files: <small class="text-muted">2 hours ago</small></h6>
-                                    <p class="m-b-15 m-t-15">hii <b> @everone</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    <div class="row">
-                                        <div class="col-auto text-center">
-                                            <img src="/static/assets/images/gallery-grid/img-grd-gal-1.jpg" alt="img" class="img-fluid wid-100">
-                                            <h6 class="m-t-15 m-b-0">Old Scooter</h6>
-                                            <p class="text-muted m-b-0"><small>PNG-100KB</small></p>
-                                        </div>
-                                        <div class="col-auto text-center">
-                                            <img src="/static/assets/images/gallery-grid/img-grd-gal-2.jpg" alt="img" class="img-fluid wid-100">
-                                            <h6 class="m-t-15 m-b-0">Wall Art</h6>
-                                            <p class="text-muted m-b-0"><small>PNG-150KB</small></p>
-                                        </div>
-                                        <div class="col-auto text-center">
-                                            <img src="/static/assets/images/gallery-grid/img-grd-gal-3.jpg" alt="img" class="img-fluid wid-100">
-                                            <h6 class="m-t-15 m-b-0">Microphone</h6>
-                                            <p class="text-muted m-b-0"><small>PNG-150KB</small></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="diactive-feed">
-                                    <div class="feed-user-img">
-                                        <img src="/static/assets/images/user/avatar-4.jpg" class="img-radius " alt="User-Profile-Image">
-                                    </div>
-                                    <h6><span class="badge badge-success">Task</span> Sarah marked the Pending Review: <span class="text-c-green"> Trash Can Icon Design</span><small class="text-muted"> 2 hours ago</small></h6>
-                                </li>
-                                <li class="diactive-feed mb-0">
-                                    <div class="feed-user-img">
-                                        <img src="/static/assets/images/user/avatar-4.jpg" class="img-radius " alt="User-Profile-Image">
-                                    </div>
-                                    <h6><span class="badge badge-primary">comment</span> abc posted a task: <span class="text-c-green">Design a new Homepage</span> <small class="text-muted">6 hours ago</small></h6>
-                                    <p class="m-b-15 m-t-15">hii <b> @everone</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                </li>
-                            </ul>
+                            <button type="button" id="removecart" class="btn btn-primary mx-auto">Remove From Cart</button>
+                            <br></br>
+                            <h5 class="text-black">Total Price <span class="float-right totalPrice"></span></h5>
+                            <h5 class="text-black">Total Quantity <span class="float-right totalQuantity"></span></h5>                          
                         </div>
-                    </div>
-                </div>
-                <!-- account-section end -->
-                <!-- Customer overview start -->
-                <div class="col-lg-6">
-                    <div class="card table-card">
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
                         <div class="card-header">
-                            <h5>Campaign monitor</h5>
-                            <div class="card-header-right">
-                                <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="feather icon-more-horizontal"></i>
-                                    </button>
-                                    <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                                        <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                                        <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                                        <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <ul class="nav nav-pills nav-fill mt-3 border-bottom pb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="feather icon-film m-r-5"></i> Entertainment</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="feather icon-file-text m-r-5"></i> CMS</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="feather icon-mail m-r-5"></i> Mail</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="pills-news-tab" data-toggle="pill" href="#pills-news" role="tab" aria-controls="pills-news" aria-selected="false"><i class="feather icon-monitor m-r-5"></i> Newslatter</a>
-                                </li>
-                            </ul>
+                            <h4>Shipping</h4> 
+                            <form role="form" method="POST" action="">
+                                <select class="custom-select" id="shippingButton">
+                                    <option selected>Select a Shipping Method</option>
+                                    <option>Standard Ground Shipping</option>
+                                    <option>Express Shipping</option>
+                                    <option>Next Day Delivery</option>
+                                </select>
+                            </form>     
                         </div>
-                        <div class="card-body p-0">
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                    <div class="table-responsive">
-                                        <div class="customer-scroll" style="height:420px;position:relative;">
-                                            <table class="table table-hover m-b-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th><span>Campaign date</span></th>
-                                                        <th><span>Click <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Cost <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>CTR <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ARPU <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ECPI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ROI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Revenue <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Conversions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 44%;" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-8-2017</td>
-                                                        <td>624
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>436
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,4%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9,45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9:05
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8.63%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11-12-2017</td>
-                                                        <td>423
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>123
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,85
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1-6-2015</td>
-                                                        <td>465
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>463
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>456
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>68,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>39.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 43%;" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <div class="table-responsive">
-                                        <div class="customer-scroll1" style="height:420px;position:relative;">
-                                            <table class="table table-hover m-b-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th><span>Campaign date</span></th>
-                                                        <th><span>Click <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Cost <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>CTR <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ARPU <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ECPI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ROI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Revenue <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Conversions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 44%;" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-8-2017</td>
-                                                        <td>624
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>436
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,4%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9,45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9:05
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8.63%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11-12-2017</td>
-                                                        <td>423
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>123
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,85
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1-6-2015</td>
-                                                        <td>465
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>463
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>456
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>68,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>39.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 43%;" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                    <div class="table-responsive">
-                                        <div class="customer-scroll2" style="height:420px;position:relative;">
-                                            <table class="table table-hover m-b-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th><span>Campaign date</span></th>
-                                                        <th><span>Click <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Cost <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>CTR <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ARPU <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ECPI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ROI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Revenue <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Conversions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 44%;" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-8-2017</td>
-                                                        <td>624
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>436
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,4%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9,45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9:05
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8.63%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11-12-2017</td>
-                                                        <td>423
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>123
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,85
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1-6-2015</td>
-                                                        <td>465
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>463
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>456
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>68,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>39.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 43%;" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">
-                                    <div class="table-responsive">
-                                        <div class="customer-scroll3" style="height:420px;position:relative;">
-                                            <table class="table table-hover m-b-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th><span>Campaign date</span></th>
-                                                        <th><span>Click <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Cost <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>CTR <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ARPU <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ECPI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>ROI <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Revenue <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                        <th><span>Conversions <a class="help" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"><i class="feather icon-help-circle f-16"></i></a></span></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 44%;" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-8-2017</td>
-                                                        <td>624
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>436
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,4%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9,45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>9:05
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8.63%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11-12-2017</td>
-                                                        <td>423
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 54%;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>123
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>756
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,85
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1-6-2015</td>
-                                                        <td>465
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>463
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>456
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>68,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8:45
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 71%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>39.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 38%;" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8-11-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 43%;" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>485
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>769
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 69%;" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>45,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,7%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>8,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 41%;" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>10:55
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>33.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>15-10-2016</td>
-                                                        <td>786
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 61%;" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>523
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>736
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>78,3%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>6,6%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-info rounded" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>7,56
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-danger rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>4:30
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td>76.8%
-                                                            <div class="progress mt-1" style="height:4px;">
-                                                                <div class="progress-bar bg-success rounded" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body">
+                            <button type="button" id="invoiceButton" class="btn btn-primary mx-auto">Create Invoice</button>
+                            <br></br>                         
                         </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div>
+                        <div class="card-header">
+                            <h4>Invoice</h4>    
+                        </div>
+                        <div id="invoice-POS">    
+                            <div id="mid">
+                                <div class="info">
+                                <h2>Contact Info</h2>
+                                <p> 
+                                    Address : Some Street Lethbridge SK, Canada</br>
+                                    Email   : testuser@test.com</br>
+                                    Phone   : (587) 891-4323</br>
+                                </p>
+                                </div>
+                            </div><!--End Invoice Mid-->
+                            <div id="bot">
+                                <div id="table">
+                                    <table id="invoiceTable">
+                                        <tr class="tabletitle">
+                                            <td class="item"><h2>Item</h2></td>
+                                            <td class="Hours"><h2>Qty</h2></td>
+                                            <td class="Rate"><h2>Sub Total</h2></td>
+                                        </tr>                        
+                                    </table>
+                                </div><!--End Table-->
+                                <div id="legalcopy">
+                                    <p class="legal"><strong>Thank you for your business!</strong> We hope to see you shop at our store again. 
+                                    </p>
+                                </div>
+                            </div><!--End InvoiceBot-->
+                        </div><!--End Invoice-->
                     </div>
                 </div>
-                <!-- Customer overview end -->
             </div>
-            <!-- [ Main Content ] end -->
         </div>
     </div>
     <!-- [ Main Content ] end -->
@@ -1585,5 +179,183 @@
     <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
     <!-- custom-chart js -->
     <script src="/static/assets/js/pages/dashboard-main.js"></script>
+    <script>
+    function update_product_selection(product_name){
+        str = product_name.replace(/\s+/g, '');
+        image_path = "/static/assets/images/" + str + ".jpg";
+        var target = document.getElementById("productImage");
+        target.src = image_path;
+        target.style.width = 1000+'px';
+        target.style.height = 400+'px';
+    }
 
+    function getCartProducts(){
+        var $productvar = $("#productRem");
+        var product_name;
+        $.ajax({
+            type: "GET",
+            url: '/cart_products/',
+            success: function(result) {
+                $("#productRem option").remove();
+                $productvar.append('<option disabled selected="true">Product Name</option>');
+                for (var i = 0; i < result.length; i++) {
+                    $productvar.append($("<option></option>").attr("value", result[i].product_id).text(result[i].product_name));
+                };
+            },
+        });
+    }
+
+    function updateCart(){
+        $.ajax({
+            type: "GET",
+            url: "/cart_price/",
+            success: function(result) {
+                $(".totalPrice").text(result);
+            },					
+        });
+        $.ajax({
+            type: "GET",
+            url: "/cart_quantity/",
+            success: function(result) {
+                $(".totalQuantity").text(result.quantity);
+            },					
+        });
+    }
+
+    $("#addcart").click(function(event) {
+        data = {'product_id': globalProduct_id};
+        $.ajax({
+            url: "/add_product_cart/",
+            method : "POST",
+            data: data,
+            success: function(result) {
+                updateCart();
+                getCartProducts();
+            },
+        });
+    });
+
+    $("#removecart").click(function(event) {
+        var valueSelected = $("#productRem").val();
+        data = {'product_id': valueSelected};
+        $.ajax({
+            url: "/remove_cart/",
+            method : "GET",
+            data: data,
+            success: function(result) {
+                updateCart();
+                getCartProducts();
+            },
+        });
+    });
+
+    function sendProductID(product_id){
+        globalProduct_id = product_id;
+    }
+
+    $("#invoiceButton").click(function(event) {
+        clearInvoice();
+        totalPrice = 0.0;
+        taxAmount = 0.0;
+        productUpdate();
+        calculateTax();
+        totalPrice += shippingAmount;
+        taxAmount = taxAmount.toFixed(2);
+        totalPrice = totalPrice.toFixed(2);
+        addTaxAndTotal();
+    });
+
+    function productUpdate() {
+        tempName = [];
+        tempPrice = [];
+        tempID = [];
+        $.ajax({
+            url: "/cart_products/",
+            method : "GET",
+            async: false,
+            success: function(result) {
+                for(var i = 0; i < result.length; i++){
+                    tempName = result[i].product_name;
+                    tempID.push(result[i].product_id);
+                    data = {'product_id': result[i].product_id};
+                    $.ajax({
+                        url: "/product_price/",
+                        method : "GET",
+                        data: data,
+                        async: false,
+                        success: function(result1) {
+                            tempPrice.push(result1);
+                            totalPrice = totalPrice + (parseFloat(result1[0]));
+                            // Add product to Table
+                            productAddToTable(tempName, result1);
+                        },
+                    });
+                }
+            },
+        });
+    }
+
+    function productAddToTable(name, price) {
+        // First check if a <tbody> tag exists, add one if not
+        if ($("#invoiceTable tbody").length == 0) {
+            $("#invoiceTable").append("<tbody></tbody>");
+        }
+        // Append product to the table
+        $("#invoiceTable tbody").append("<tr>" +
+            "<td>" + name + "</td>" +
+            "<td> 1 </td>" +
+            "<td>" + price + "</td>" +
+            "</tr>");
+    }
+
+    function addTaxAndTotal(){
+        // Append product to the table
+        $("#invoiceTable tbody").append(
+        "<tr class=\"tabletitle\"> <td></td>" +
+        "<td class=\"Rate\"><h2>Tax</h2></td>" +
+        "<td class=\"payment\"><h2>$"+taxAmoumt.toFixed(2)+"</h2></td>" +
+        "</tr>" +
+        "<tr class=\"tabletitle\"> <td></td>" +
+        "<td class=\"Rate\"><h2>Shipping</h2></td>" +
+        "<td class=\"payment\"><h2>$"+shippingAmount.toFixed(2)+"</h2></td>" +
+        "</tr>" +
+        "<tr class=\"tabletitle\">" +
+        "<td></td>" +
+        "<td class=\"Rate\"><h2>Total</h2></td>" +
+        "<td class=\"payment\"><h2>$"+totalPrice+"</h2></td>" +
+        "</tr>");
+    }
+    function calculateTax(){
+        taxAmoumt = totalPrice * 0.05;
+        totalPrice = totalPrice * 1.05;
+    }
+    $("#shippingButton").change(function() {
+	    var optionSelected = $(this).find("option:selected");
+        var val = optionSelected.val();
+        if(val.startsWith("S")){
+            shippingAmount = 4.99;
+        }
+        else if (val.startsWith("E")){
+            shippingAmount = 9.99;
+        }
+        else if(val.startsWith("N")){
+            shippingAmount = 14.99;
+        }
+    });
+    function clearInvoice(){
+        $("#invoiceTable tr").remove();
+
+        // First check if a <tbody> tag exists, add one if not
+        if ($("#invoiceTable tbody").length == 0) {
+            $("#invoiceTable").append("<tbody></tbody>");
+        }
+        $("#invoiceTable tbody").append(
+            "<tr class=\"tabletitle\">" + 
+            "<td class=\"item\"><h2>Item</h2></td>" +
+            "<td class=\"Hours\"><h2>Qty</h2></td>" +
+            "<td class=\"Rate\"><h2>Sub Total</h2></td>" +
+            "</tr>");
+    }
+
+    </script>
 {% endblock javascripts %}

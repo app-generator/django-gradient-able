@@ -8,7 +8,7 @@
         "product_type": "Cell Phone",
         "price": 149.99,
         "quantity": 12,
-        "product_weight": 178.23,
+        "product_weight": 17.23,
         "store_id": 1
       }
     },
@@ -21,7 +21,20 @@
         "product_type": "Cell Phone",
         "price": 1199.99,
         "quantity": 145,
-        "product_weight": 143.12,
+        "product_weight": 14.12,
+        "store_id": 2
+      }
+    },
+    {
+      "model": "app.Product",
+      "pk": 3,
+      "fields": {
+        "product_name": "DELL XPS 13",
+        "product_model": "2020",
+        "product_type": "Laptop",
+        "price": 1599.99,
+        "quantity": 12,
+        "product_weight": 104.12,
         "store_id": 2
       }
     }

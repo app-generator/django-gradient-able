@@ -1,8 +1,3 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,6 +12,7 @@ class Physical_Store(models.Model):
     phone = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     fax_number = models.CharField(max_length=255)
+    store_name = models.CharField(max_length=255)
 
     class Meta:
         ordering = ['store_id']
@@ -47,6 +43,9 @@ class Physical_Store(models.Model):
 
     def get_fax_number(self):
         return self.fax_number
+
+    def get_store_name(self):
+        return self.store_name
 
 class Product(models.Model):
     product_id = models.IntegerField(primary_key=True)
@@ -159,18 +158,20 @@ class Manufacturer(models.Model):
     def get_postal_code(self):
         return self.postal_code
 
-class Member(models.Model):
-    member_id = models.IntegerField(primary_key=True)
+class Customer(models.Model):
+    customer_id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    shipping_address = models.CharField(max_length=255)
-    billing_address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    fax = models.CharField(max_length=255)
+    street = models.CharField(max_length=255)
+    postal_code = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     province = models.CharField(max_length=255)
-    postal_code = models.CharField(max_length=255)
-    email_address = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
 
-    def get_member_id(self):
+    def get_customer_id(self):
         return self.member_id
 
     def get_first_name(self):
@@ -178,12 +179,6 @@ class Member(models.Model):
     
     def get_last_name(self):
         return self.last_name
-    
-    def get_shipping_address(self):
-        return self.shipping_address
-
-    def get_billing_address(self):
-        return self.billing_address
 
     def get_city(self):
         return self.city
@@ -194,8 +189,20 @@ class Member(models.Model):
     def get_postal_code(self):
         return self.postal_code
 
-    def get_email_address(self):
-        return self.email_address
+    def get_email(self):
+        return self.email
+
+    def get_phone(self):
+        return self.phone
+
+    def get_fax(self):
+        return self.fax
+
+    def get_street(self):
+        return self.street
+
+    def get_country(self):
+        return self.country
 
 class Inventory_Website(models.Model):
     business_licence = models.IntegerField(primary_key=True)
@@ -237,26 +244,26 @@ class Web_Admin(models.Model):
     def get_business_licence(self):
         return self.business_licence
 
-class Individual_User(models.Model):
-    customer_id = models.IntegerField(primary_key=True)
-    business_licence = models.ForeignKey(Inventory_Website, on_delete=models.CASCADE)
-    customer_name = models.CharField(max_length=255)
-    customer_contact = models.CharField(max_length=255)
+class Manager(models.Model):
+    manager_id = models.IntegerField(primary_key=True)
+    man_fname = models.CharField(max_length=255)
+    man_lname = models.CharField(max_length=255)
+    man_salary = models.CharField(max_length=255)
 
-    def get_customer_id(self):
-        return self.customer_id
+    def get_manager_id(self):
+        return self.manager_id
 
-    def get_business_licence(self):
-        return self.business_licence
+    def get_man_fname(self):
+        return self.man_fname
     
-    def get_customer_name(self):
-        return self.customer_name
+    def get_man_lname(self):
+        return self.man_lname
     
-    def get_customer_contact(self):
-        return self.customer_contact
+    def get_man_salary(self):
+        return self.man_salary
 
 class Request(models.Model):
-    customer_id = models.ForeignKey(Individual_User, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     order_id = models.ForeignKey(Order, on_delete=models.CASCADE)
 
     def get_customer_id(self):
@@ -327,7 +334,7 @@ class Category(models.Model):
     def get_category_description(self):
         return self.category_description
 
-class Has(models.Model):
+class CatergoryHasProduct(models.Model):
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     category_name = models.ForeignKey(Category, on_delete=models.CASCADE)
 
@@ -366,8 +373,11 @@ class Cart(models.Model):
         return self.total_price
 
 class Assist(models.Model):
-    customer_id = models.ForeignKey(Individual_User, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     cust_sup_id = models.ForeignKey(Customer_Support, on_delete=models.CASCADE)
+    call = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    live_chat = models.CharField(max_length=255)
 
     def cust_sup_id(self):
         return self.cust_sup_id
@@ -376,7 +386,7 @@ class Assist(models.Model):
         return self.customer_id
 
 class Select(models.Model):
-    customer_id = models.ForeignKey(Individual_User, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def get_customer_id(self):
@@ -384,3 +394,13 @@ class Select(models.Model):
 
     def get_product_id(self):
         return self.product_id
+
+class ProductFoundStore(models.Model):
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    store_id = models.ForeignKey(Physical_Store, on_delete=models.CASCADE)
+
+    def get_product_id(self):
+        return self.product_id
+
+    def get_store_id(self):
+        return self.store_id

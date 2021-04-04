@@ -1,0 +1,16 @@
+[
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 1,
+        "colour": "Black"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 1,
+        "colour": "Red"
+      }
+    }
+  ]

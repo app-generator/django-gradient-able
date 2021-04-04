@@ -1,0 +1,23 @@
+[
+    {
+      "model": "app.Supply",
+      "fields": {
+        "product_id": 1,
+        "supplier_id": 1
+      }
+    },
+    {
+        "model": "app.Supply",
+        "fields": {
+            "product_id": 2,
+            "supplier_id": 1
+          }
+      },
+    {
+      "model": "app.Supply",
+      "fields": {
+        "product_id": 3,
+        "supplier_id": 2
+      }
+    }
+  ]

@@ -1,0 +1,16 @@
+[
+    {
+      "model": "app.Category",
+      "pk": "Phones",
+      "fields": {
+        "category_description": "All phones, android, iphone etc."
+      }
+    },
+    {
+      "model": "app.Category",
+      "pk": "Laptops",
+      "fields": {
+        "category_description": "All laptops, windows, MAC's etc."
+      }
+    }
+  ]
