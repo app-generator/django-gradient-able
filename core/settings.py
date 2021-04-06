@@ -75,8 +75,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'store_inventory',
-        'USER': 'root',
-        'PASSWORD': 'Master#5',
+        'USER': 'djangouser',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
