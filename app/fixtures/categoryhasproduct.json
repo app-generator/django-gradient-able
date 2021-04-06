@@ -1,0 +1,23 @@
+[
+    {
+      "model": "app.CatergoryHasProduct",
+      "fields": {
+        "category_name": "Phones",
+        "product_id": 1
+      }
+    },
+    {
+        "model": "app.CatergoryHasProduct",
+        "fields": {
+          "category_name": "Phones",
+          "product_id": 2
+        }
+      },
+    {
+      "model": "app.CatergoryHasProduct",
+      "fields": {
+        "category_name": "Laptops",
+        "product_id": 3
+      }
+    }
+  ]

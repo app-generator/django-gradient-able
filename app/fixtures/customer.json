@@ -1,0 +1,18 @@
+[
+    {
+      "model": "app.Customer",
+      "pk": 1,
+      "fields": {
+        "first_name": "Test",
+        "last_name": "User",
+        "phone": "5878914323",
+        "email": "testuser@test.com",
+        "fax": "123",
+        "street": "Some Street",
+        "postal_code": "Some code",
+        "city": "Lethbridge",
+        "province": "SK",
+        "country": "Canada"
+      }
+    }
+]

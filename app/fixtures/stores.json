@@ -10,7 +10,8 @@
       "postal_code": "T2W 8L2",
       "phone": "4035671203",
       "email": "store1@test.com",
-      "fax_number": "9998887654"
+      "fax_number": "9998887654",
+      "store_name": "ABC store"
     }
   },
   {
@@ -24,7 +25,8 @@
       "postal_code": "T2X 0W2",
       "phone": "5874579087",
       "email": "store2@test.com",
-      "fax_number": "1234567891"
+      "fax_number": "1234567891",
+      "store_name": "The best store"
     }
   }
 ]

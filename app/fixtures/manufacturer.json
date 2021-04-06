@@ -1,0 +1,32 @@
+[
+    {
+      "model": "app.Manufacturer",
+      "pk": 1,
+      "fields": {
+        "supplier_name": "Apple",
+        "email": "apple@apple.com",
+        "city": "Palo Alto",
+        "country": "Canada",
+        "phone": "1234567891",
+        "fax_number": "9987234516",
+        "province": "Saskatoon",
+        "street": "Bridlewood",
+        "postal_code": "K3G2T5"
+      }
+    },
+    {
+      "model": "app.Manufacturer",
+      "pk": 2,
+      "fields": {
+        "supplier_name": "Dell",
+        "email": "dell@dell.com",
+        "city": "Edmonton",
+        "country": "Canada",
+        "phone": "2347651123",
+        "fax_number": "4035671203",
+        "province": "AB",
+        "street": "Shaganappi",
+        "postal_code": "T3Rl5F"
+      }
+    }
+  ]

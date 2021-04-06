@@ -1,0 +1,26 @@
+[
+    {
+      "model": "app.Information_Page",
+      "pk": 1,
+      "fields": {
+        "product_id": 1,
+        "product_description": "Very useful iPhone 5"
+      }
+    },
+    {
+        "model": "app.Information_Page",
+        "pk": 2,
+        "fields": {
+            "product_id": 2,
+            "product_description": "Latest new iPhone 12"
+          }
+      },
+    {
+      "model": "app.Information_Page",
+      "pk": 3,
+      "fields": {
+        "product_id": 3,
+        "product_description": "Great Windows Laptop"
+      }
+    }
+  ]
