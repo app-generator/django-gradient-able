@@ -3,14 +3,84 @@
       "model": "app.Colour",
       "fields": {
         "product_id": 1,
-        "colour": "Black"
+        "colour": "Platinum black"
       }
     },
     {
       "model": "app.Colour",
       "fields": {
         "product_id": 1,
-        "colour": "Red"
+        "colour": "Arctic white"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 2,
+        "colour": "Platinum black"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 2,
+        "colour": "Arctic white"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 3,
+        "colour": "Platinum black"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 3,
+        "colour": "Arctic white"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 4,
+        "colour": "Platinum black"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 4,
+        "colour": "Arctic white"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 5,
+        "colour": "Platinum black"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 5,
+        "colour": "Arctic white"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 6,
+        "colour": "Platinum black"
+      }
+    },
+    {
+      "model": "app.Colour",
+      "fields": {
+        "product_id": 6,
+        "colour": "Arctic white"
       }
     }
   ]

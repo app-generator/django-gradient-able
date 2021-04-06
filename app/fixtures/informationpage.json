@@ -4,7 +4,7 @@
       "pk": 1,
       "fields": {
         "product_id": 1,
-        "product_description": "Very useful iPhone 5"
+        "product_description": "- Dimensions: 0.64 x 14.09 x 9.68 inches (1.62 x: 35.79 x 24.59cm)\\n- Battery life: Lasts just 8 hours and 25 minutes over AT&T's 5G network.\\n- Memory: Apple offers three iPhone 12 storage options at different price points. The iPhone 12 starts at 64GB with 128GB and 256GB options available for people who want more space. The 64GB model is the cheapest option while the 256GB model is the most expensive.\\n- Camera/video/audio: The main wide module has a 12 MP sensor behind a 26 mm-equivalent f/1.6 lens with optical image stabilization and phase detection autofocus— apparently the same camera used in the iPhone 12 Pro and the 12 Mini. There's also an ultra-wide camera with a 12 MP 1/3.6-inch sensor and a 13 mm-equivalent f/2.4 lens.\\n- Warranty: 2 year warranty"
       }
     },
     {
@@ -12,7 +12,7 @@
         "pk": 2,
         "fields": {
             "product_id": 2,
-            "product_description": "Latest new iPhone 12"
+            "product_description": "- Dimensions: 158.2 x 72.6 x 9 mm (6.23 x 2.86 x 0.35 in)\\n- Battery life: The phone can last almost 14 hours on web surfing, or more than 17 hours on playing videos.\\n- Memory: 8 GB RAM and 128 GB/256GB/512GB internal storage options.\\n- Camera/video/audio: Implements a large and high-resolution image sensor (40MP 1/1.54″) in its ultra-wide camera, which combined with a fast f/1.8 lens, should make for excellent low-light image quality.\\n- Warranty: Provided for a period of: twenty-four (24) months in respect of the device; six (6) months in respect of the charger and a removable battery; and, three (3) months in respect of the earphones, from the date of the original retail purchase of the Product (“Warranty Period”)."
           }
       },
     {
@@ -20,7 +20,31 @@
       "pk": 3,
       "fields": {
         "product_id": 3,
-        "product_description": "Great Windows Laptop"
+        "product_description": "- Dimensions: Height: 14.8 mm ( 0.58 in), Width: 295.7 mm (11.64 in), Depth: 198.7 mm (7.82 in), Starting Weight: 1.2 kg (2.64 lb)* for non-touch; 1.27 kg (2.8 lb)* for touch.\\n- Battery life: Whether you're on the road or working from home, the XPS 13 can put in a full work day and then some. The laptop can last 12 hours and 39 minutes on the Laptop Mag Battery Test, which consists of continuous web surfing over Wi-Fi at 150 nits of brightness. Experience incredibly long battery life — up to 14 hours, 11 minutes* on a Full HD+ model when streaming your favorite shows or up to 8 hours and 12 minutes* of streaming on a 4K+ model.\\n- Memory: 10th Gen Intel Core CPU options, up to 8GB of non-upgradeable RAM, and up to a 256GB M\\n- Camera/video/audio: Dell has managed to craft its smallest laptop camera ever, at 2.25mm – small enough to be integrated into the top bezel of the XPS 13 InfinityEdge display. A 4-element lens uses more elements than a typical webcam to deliver sharp video in all areas of the frame, while temporal noise reduction uses advanced noise reduction, significantly improving video quality, especially in dim lighting conditions.\\n- Warranty: 3 year warranty\\n- Security: the infrared camera with Windows Hello recognizes your face, unlocking your XPS with secure facial recognition technology. The fingerprint reader integrated into the power button lets you log on with just a touch.\\n- Design: Elegant design with high build quality that’s stronger and stiffer than magnesium or plastic.\\n- The speed and intelligence of 11th Gen Intel® Core™ processors and up to Intel® Iris® Xe graphics makes your experience fast, smooth, and easy.\\n- Faster memory, more storage: Your system boots and resumes in seconds thanks to up to 2TB of solid-state drive storage. Multi-task in a flash even on intense applications with up to 32GB of memory\\n- The optional 4K Ultra HD+ (3840 x 2400) touch display offers pinpoint accuracy for all of your computing needs. See the detail of every pixel in photos without needing to zoom in or see more content while browsing the web.\\n- Easy on the eyes: Eyesafe® intelligently manages light energy at the source – selectively reducing harmful blue light and dispersing it across the light spectrum. Our unique solution combines RGB hardware and software adjustments to more effectively protect against blue light, while maintaining vivid color integrity.\\n- A built in lid sensor allows you to open the lid and power up in milliseconds, no matter what power-state you are in."
+      }
+    },
+    {
+      "model": "app.Information_Page",
+      "pk": 4,
+      "fields": {
+        "product_id": 4,
+        "product_description": "- Dimensions: 0.64 x 14.09 x 9.68 inches (1.62 x: 35.79 x 24.59cm)\\n- Battery life: During the battery test, which involves continuous web surfing at 150 nits of screen brightness, the 16-inch MacBook Pro endured 10 hours and 55 minutes. That's excellent battery life for a big-screen laptop and outlasts competing Windows systems.\\n- Memory: Up to 8TB of SSD storage — the most available in any notebook. So you can take your photo or video libraries with you no matter where you're headed.\\n- Camera/video/audio: 16-inch Retina display for an immersive viewing experience. Six-speaker sound system and studio-quality for dramatic sound and superclean recordings. The narrow-band LED-powered backlight allows MacBook Pro to represent the P3 wide colour gamut for brilliant, true-to-life colour in photos and videos.\\n- Warranty: 1 year limited warranty. In addition, AppleCare+ gives you expert technical support and hardware coverage from Apple, including accidental damage protection. Each incident of accidental damage is subject to a service fee.\\n- Security: Every MacBook Pro is equipped with the Apple T2 Security Chip — our second‑generation custom Mac silicon designed to make everything you do even more secure. It includes a Secure Enclave coprocessor that powers Touch ID and provides the foundation for secure boot and encrypted storage capabilities. It also consolidates many discrete controllers, including the system management controller, audio controller and SSD controller, into one.\\n- Up to 8-core processor to power through intensive workloads\\n- More advanced thermal architecture enables faster processing."
+      }
+    },
+    {
+      "model": "app.Information_Page",
+      "pk": 5,
+      "fields": {
+        "product_id": 5,
+        "product_description": "- Dimensions: 165.1 x 75.6 x 8.9 mm (6.5 x 2.98 x 0.35 in)\\n- Battery life: Galaxy S21 Ultra lands on the best phone battery life list by lasting nearly 11.5 hours on a single charge in our battery test.\\n- Memory: Galaxy S21 comes with 128GB of storage. For most of us who aren't data-hoarders or 4K fiends, 128GB will be more than enough room for your offline music and all of your apps and files.\\n- Camera/video/audio: Samsung Galaxy S21 Ultra 5G (Exynos) delivers a good camera performance but lags somewhat behind the best competitors in the ultra-premium segment. Unexpectedly, it also scores lower than its predecessor S20 Ultra 5G at 126. The cameras on the Galaxy S21 Series 5G feature super high resolution, an innovative zoom, and one-tap effects. It captures bright, vivid colours in the dark of night and any angles.\\n- Warranty: 1 year warranty\\n- Design: The Galaxy S21 Series 5G features all-new seamless metal camera detailing, modern matte finishes, and the toughest glass on a smartphone yet.\\n- Intelligent battery intuitively manages your usage to conserve energy on its own, so you can often go all day without charging."
+      }
+    },
+    {
+      "model": "app.Information_Page",
+      "pk": 6,
+      "fields": {
+        "product_id": 6,
+        "product_description": "- Dimensions: 11.5” x 7.9” x 0.33” (292 mm x 201 mm x 8.5 mm)\\n- Battery life: Up to 10.5 hours of typical device usage\\n- Memory: 4GB, 8GB, or 16GB LPDDR4x RAM\\n- Camera/video/audio: 5MP front-facing camera and 8MP rear-facing camera let you capture, record, stream, and video conference in Full HD 1080p\\n- Warranty: 1 year warranty\\n- Ultra-slim screen boasts a 10th generation Intel Core i5 processor and 8GB of RAM.\\n- 12.3-inch PixelSense touchscreen display with a resolution of 2736 x 1824 is responsive, fluid, and easy on the eyes"
       }
     }
   ]

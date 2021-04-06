@@ -4,14 +4,14 @@
     "pk": 1,
     "fields": {
       "street": "University Drive",
-      "city": "Edmonton",
-      "province": "AB",
+      "city": "Calgary",
+      "province": "Alberta",
       "country": "Canada",
       "postal_code": "T2W 8L2",
       "phone": "4035671203",
-      "email": "store1@test.com",
+      "email": "university@university.com",
       "fax_number": "9998887654",
-      "store_name": "ABC store"
+      "store_name": "University Store"
     }
   },
   {
@@ -20,13 +20,13 @@
     "fields": {
       "street": "Sait Drive",
       "city": "Calgary",
-      "province": "AB",
+      "province": "Alberta",
       "country": "Canada",
       "postal_code": "T2X 0W2",
       "phone": "5874579087",
-      "email": "store2@test.com",
+      "email": "edu@edu.com",
       "fax_number": "1234567891",
-      "store_name": "The best store"
+      "store_name": "Student Tech Needs"
     }
   }
 ]

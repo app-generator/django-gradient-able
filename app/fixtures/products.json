@@ -3,12 +3,12 @@
       "model": "app.Product",
       "pk": 1,
       "fields": {
-        "product_name": "iPhone 5",
-        "product_model": "5",
+        "product_name": "iPhone 12",
+        "product_model": "12",
         "product_type": "Cell Phone",
-        "price": 149.99,
+        "price": 799.00,
         "quantity": 12,
-        "product_weight": 17.23,
+        "product_weight": 164,
         "store_id": 1
       }
     },
@@ -16,12 +16,12 @@
       "model": "app.Product",
       "pk": 2,
       "fields": {
-        "product_name": "iPhone 12",
-        "product_model": "12",
+        "product_name": "Huawei P40 Pro",
+        "product_model": "Pro",
         "product_type": "Cell Phone",
-        "price": 1199.99,
+        "price": 792.50,
         "quantity": 145,
-        "product_weight": 14.12,
+        "product_weight": 209,
         "store_id": 2
       }
     },
@@ -32,9 +32,48 @@
         "product_name": "DELL XPS 13",
         "product_model": "2020",
         "product_type": "Laptop",
-        "price": 1599.99,
-        "quantity": 12,
-        "product_weight": 104.12,
+        "price": 1899.99,
+        "quantity": 34,
+        "product_weight": 1270,
+        "store_id": 2
+      }
+    },
+    {
+      "model": "app.Product",
+      "pk": 4,
+      "fields": {
+        "product_name": "16-inch MacBook Pro",
+        "product_model": "Pro",
+        "product_type": "Laptop",
+        "price": 2999.00,
+        "quantity": 120,
+        "product_weight": 1950.45,
+        "store_id": 1
+      }
+    },
+    {
+      "model": "app.Product",
+      "pk": 5,
+      "fields": {
+        "product_name": "Samsung Galaxy S21",
+        "product_model": "S21",
+        "product_type": "Cell Phone",
+        "price": 1029.99,
+        "quantity": 80,
+        "product_weight": 171,
+        "store_id": 1
+      }
+    },
+    {
+      "model": "app.Product",
+      "pk": 6,
+      "fields": {
+        "product_name": "Surface Pro 7",
+        "product_model": "7",
+        "product_type": "Laptop",
+        "price": 2669.00,
+        "quantity": 160,
+        "product_weight": 785,
         "store_id": 2
       }
     }

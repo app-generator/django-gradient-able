@@ -10,7 +10,7 @@
         "model": "app.Supply",
         "fields": {
             "product_id": 2,
-            "supplier_id": 1
+            "supplier_id": 4
           }
       },
     {
@@ -18,6 +18,27 @@
       "fields": {
         "product_id": 3,
         "supplier_id": 2
+      }
+    },
+    {
+      "model": "app.Supply",
+      "fields": {
+        "product_id": 4,
+        "supplier_id": 1
+      }
+    },
+    {
+      "model": "app.Supply",
+      "fields": {
+        "product_id": 5,
+        "supplier_id": 5
+      }
+    },
+    {
+      "model": "app.Supply",
+      "fields": {
+        "product_id": 6,
+        "supplier_id": 3
       }
     }
   ]

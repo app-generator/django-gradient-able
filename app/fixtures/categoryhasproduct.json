@@ -7,17 +7,38 @@
       }
     },
     {
-        "model": "app.CatergoryHasProduct",
-        "fields": {
-          "category_name": "Phones",
-          "product_id": 2
-        }
-      },
+      "model": "app.CatergoryHasProduct",
+      "fields": {
+        "category_name": "Phones",
+        "product_id": 2
+      }
+    },
     {
       "model": "app.CatergoryHasProduct",
       "fields": {
         "category_name": "Laptops",
         "product_id": 3
+      }
+    },
+    {
+      "model": "app.CatergoryHasProduct",
+      "fields": {
+        "category_name": "Laptops",
+        "product_id": 4
+      }
+    },
+    {
+      "model": "app.CatergoryHasProduct",
+      "fields": {
+        "category_name": "Phones",
+        "product_id": 5
+      }
+    },
+    {
+      "model": "app.CatergoryHasProduct",
+      "fields": {
+        "category_name": "Laptops",
+        "product_id": 6
       }
     }
   ]
