@@ -1,12 +1,20 @@
 
 	<!-- [ Header ] start -->
-	<header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed header-blue">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            var username = "{{ request.user.get_full_name|safe }}"
+            username.replace(/\s/g, '+')
+            $(".img-radius").attr("src", "https://ui-avatars.com/api/?background=ffcd00&name="+username)
+        });
+    </script>
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed header-blue">
 		
 			
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             <a href="#!" class="b-brand">
-                <!-- ========   change your logo hear   ============ -->
+                <!-- ========   change your logo here   ============ -->
                 <img src="/static/assets/images/logo-inventory.png" alt="" class="logo">
                 <img src="/static/assets/images/logo-inventory.png" alt="" class="logo-thumb">
             </a>
@@ -38,20 +46,20 @@
                 <li>
                     <div class="dropdown drp-user">
                         <a href="#!" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/static/assets/images/user/avatar-1.jpg" class="img-radius wid-40" alt="User-Profile-Image">
+                            <img src="" class="img-radius wid-40">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="/static/assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="" class="img-radius">
                                 <span>
-                                    {{ request.user.username }}
+                                    {{ request.user.get_full_name }}
                                 </span>
-                                <a href="{% url 'logout' %}" class="dud-logout" title="Logout">
-                                    <i class="feather icon-log-out"></i>
-                                </a>
                             </div>
                             <ul class="pro-body">
-                                <li><a href="#" class="dropdown-item"><i class="feather icon-user"></i> Profile - {{ request.user.username }} </a></li>
+                                <li><a href="#" class="dropdown-item"><i class="feather icon-user"></i> Profile </a></li>
+                                <li><a href="#" class="dropdown-item"><i class="feather icon-settings"></i> Settings </a></li>
+                                <li><a href={% url 'logout' %} class="dropdown-item"><i class="feather icon-log-out"></i> Logout </a></li>
+                                </a>
                             </ul>
                         </div>
                     </div>

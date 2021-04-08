@@ -2,7 +2,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `productColors`(
 IN productID int
 )
 BEGIN
-		SELECT c.colour
+		SELECT c.product_id_id, c.colour
         FROM app_colour c
         WHERE c.product_id_id = productID;
 END
