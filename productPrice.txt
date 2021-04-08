@@ -1,0 +1,8 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `productPrice`(
+IN productID int
+)
+BEGIN
+		SELECT p.price
+        FROM app_product p
+        WHERE p.product_id = productID;
+END

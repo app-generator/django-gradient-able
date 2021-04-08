@@ -93,9 +93,10 @@
                                 <br>
                                 <h5 class="text-black">Product Name <span class="float-right productName"></span></h5>
                                 <h5 class="text-black">Store Available <span class="float-right storeAvailable"></span></h5>
-                                <h5 class="text-black">Product Description <span class="float-right productDescription"></span></h5>
                                 <h5 class="text-black">Price <span class="float-right productPrice"></span></h5>
                                 <h5 class="text-black">Manufacturer <span class="float-right productManufacturer"></span></h5>
+                                <h5 class="text-black">Product Description <span class="float-right temp"></span></h5>
+                                <pre><h3 class="text-black"></h3></pre><span class="float-right productDescription"></span></h3>
                                 <button type="button" id="addcart" class="btn btn-primary mx-auto">Add to Cart</button>
                             </div>
                         <div class="dropdown-divider"></div>
@@ -141,9 +142,10 @@
                                 <div class="info">
                                 <h2>Contact Info</h2>
                                 <p> 
-                                    Address : Some Street Lethbridge SK, Canada</br>
-                                    Email   : testuser@test.com</br>
-                                    Phone   : (587) 891-4323</br>
+                                    Address : 2500 University Dr NW, Calgary AB, Canada</br>
+                                    Email   : InventoryStore@cpsc471.com</br>
+                                    Phone   : (403) 471-4714</br>
+                                    Fax     : (403) 220-0762</br>
                                 </p>
                                 </div>
                             </div><!--End Invoice Mid-->
@@ -180,9 +182,15 @@
     <!-- custom-chart js -->
     <script src="/static/assets/js/pages/dashboard-main.js"></script>
     <script>
-    function update_product_selection(product_name){
+    function update_product_selection(product_name, color){
+        if(color == "Platinum black"){
+            colorTag = 'Black';
+        }
+        else if (color == "Arctic white"){
+            colorTag = 'White';
+        }
         str = product_name.replace(/\s+/g, '');
-        image_path = "/static/assets/images/" + str + ".jpg";
+        image_path = "/static/assets/images/" + str + colorTag + ".jpg";
         var target = document.getElementById("productImage");
         target.src = image_path;
         target.style.width = 1000+'px';
@@ -325,10 +333,12 @@
         "<td class=\"payment\"><h2>$"+totalPrice+"</h2></td>" +
         "</tr>");
     }
+
     function calculateTax(){
         taxAmoumt = totalPrice * 0.05;
         totalPrice = totalPrice * 1.05;
     }
+
     $("#shippingButton").change(function() {
 	    var optionSelected = $(this).find("option:selected");
         var val = optionSelected.val();
@@ -342,6 +352,7 @@
             shippingAmount = 14.99;
         }
     });
+
     function clearInvoice(){
         $("#invoiceTable tr").remove();
 

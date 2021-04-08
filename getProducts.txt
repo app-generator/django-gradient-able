@@ -1,0 +1,8 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getProducts`(
+IN categoryName VARCHAR(255)
+)
+BEGIN
+		SELECT p.product_name, p.product_id
+        FROM app_product p, app_catergoryhasproduct c
+        WHERE c.category_name_id = categoryName AND c.product_id_id = p.product_id;
+END

@@ -11,11 +11,19 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),          # Django admin route
-    # url(r'users/', views.userList.as_view()),
-    # url(r'groups/', views.groupList.as_view()),
-    path('stores/', views.storeList.as_view()),
-    path('products/', views.productList.as_view()),
-    path('products/<int:pk>/', views.productDetail.as_view()),
+    # Rest framework api's
+    path('get_category_api/', views.categoryList.as_view()),
+    url(r'^get_products_api/$', views.productList.as_view()),
+    url(r'^selection_submitted_api/$', views.selectionList.as_view()),
+    url(r'^product_price_api/$', views.productPriceList.as_view()),
+    url(r'^product_manufacturer_api/$', views.productManList.as_view()),     
+    url(r'add_product_cart_api/$', views.addProductCartList.as_view()),     
+    path('cart_price_api/', views.cartPriceList.as_view()),     
+    path('cart_quantity_api/', views.cartQuantityList.as_view()),     
+    url(r'remove_cart_api/$', views.removeCartList.as_view()),     
+    url(r'cart_products_api/$', views.cartProductsList.as_view()),
+    url(r'get_color_api/$', views.productColorsList.as_view()),
+    # App ajax api's
     path('get_category/', views.get_category, name='get-category'),
     path('get_products/', views.get_products, name='get-products'),
     path('selection_submitted/', views.selection_submitted, name='selection-submitted'),
@@ -25,7 +33,8 @@ urlpatterns = [
     path('cart_price/', views.cart_price, name='cart-price'),     
     path('cart_quantity/', views.cart_quantity, name='cart-quantity'),     
     path('remove_cart/', views.remove_cart, name='remove-cart'),     
-    path('cart_products/', views.cart_products, name='cart-products'),     
+    path('cart_products/', views.cart_products, name='cart-products'),
+    path('get_color/', views.get_color, name='get-color'),          
     path("", include("authentication.urls")), # Auth routes - login / register
     path("", include("app.urls")),             # UI Kits Html files
 ]

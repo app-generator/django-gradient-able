@@ -1,0 +1,5 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getCategory`()
+BEGIN
+		SELECT c.category_name
+        FROM app_category c;
+END

@@ -5,6 +5,8 @@
 		$(document).ready(function() {
 			var $categoryvar = $("#CategorySelect");
 			var $productvar = $("#ProductSelect");
+			var $colorvar = $("#ColorSelect");
+
 			getCartProducts();
 			updateCart();
 
@@ -39,7 +41,7 @@
 							$productvar.append($("<option></option>").attr("value", result[i].product_id).text(result[i].product_name));
 						};
 					},
-				});
+				});		
 			});
 
 			$productvar.change(function() {
@@ -47,22 +49,39 @@
 				var valueSelected = optionSelected.val();
 				product_name = optionSelected.text();
 
-				data = {'product_id': valueSelected, 'product_name': product_name};
+				data = {'product_id': valueSelected};
+				$.ajax({
+					type: "GET",
+					url: '/get_color/',
+					data: data,
+					success: function(result) {
+						console.log(result);
+						$("#ColorSelect option").remove();
+						$colorvar.append('<option disabled selected="true">Color</option>');
+						for (var i = 0; i < result.length; i++) {
+							$colorvar.append($("<option></option>").attr("value", result[i].product_id).text(result[i].colour));
+						};
+					},
+				});
 
+				data = {'product_id': valueSelected, 'product_name': product_name};
 				$.ajax({
 					type: "GET",
 					url: "/selection_submitted/",
 					data: data,
 					success: function(result) {
 						$("#SubmitSelection").click(function(event) {
+							temp = $colorvar.find("option:selected");
+							color = temp.text();
 							sendProductID(valueSelected);
 							$(".productName").text(result[0].product_name);
 							$(".storeAvailable").text(result[0].store_name);
 							$(".productDescription").text(result[0].product_description)
-							update_product_selection(product_name);
+							update_product_selection(product_name, color);
 						});	
 					},					
 				});
+
 				$.ajax({
 					type: "GET",
 					url: "/product_price/",
@@ -106,6 +125,13 @@
 							<li class="form-group pt-2 px-3">
 								<select class="custom-select" id="ProductSelect">
 									<option selected>Product Name</option>
+								</select>
+							</li>
+							<li class="form-group pt-2 px-3">
+								<select class="custom-select" id="ColorSelect">
+									<option selected>Color</option>
+									<!-- <option>Platinum Black</option>
+									<option>Arctic White</option> -->
 								</select>
 							</li>
 							<div class="text-center" src="/layouts/index.html">

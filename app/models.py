@@ -105,7 +105,7 @@ class Order(models.Model):
 class Information_Page(models.Model):
     page_id = models.IntegerField(primary_key=True)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
-    product_description = models.CharField(max_length=255)
+    product_description = models.TextField()
 
     def get_page_id(self):
         return self.page_id

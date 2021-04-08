@@ -1,0 +1,8 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `productManufacturer`(
+IN productID int
+)
+BEGIN
+		SELECT m.supplier_id, m.supplier_name
+        FROM app_supply s, app_manufacturer m
+        WHERE s.product_id_id = productID AND s.supplier_id_id = m.supplier_id;
+END

@@ -8,7 +8,7 @@
         "product_type": "Cell Phone",
         "price": 799.00,
         "quantity": 12,
-        "product_weight": 164,
+        "product_weight": 164.00,
         "store_id": 1
       }
     },
@@ -21,7 +21,7 @@
         "product_type": "Cell Phone",
         "price": 792.50,
         "quantity": 145,
-        "product_weight": 209,
+        "product_weight": 209.00,
         "store_id": 2
       }
     },
@@ -34,7 +34,7 @@
         "product_type": "Laptop",
         "price": 1899.99,
         "quantity": 34,
-        "product_weight": 1270,
+        "product_weight": 270.00,
         "store_id": 2
       }
     },
@@ -47,7 +47,7 @@
         "product_type": "Laptop",
         "price": 2999.00,
         "quantity": 120,
-        "product_weight": 1950.45,
+        "product_weight": 950.00,
         "store_id": 1
       }
     },
@@ -60,7 +60,7 @@
         "product_type": "Cell Phone",
         "price": 1029.99,
         "quantity": 80,
-        "product_weight": 171,
+        "product_weight": 171.00,
         "store_id": 1
       }
     },
@@ -73,7 +73,7 @@
         "product_type": "Laptop",
         "price": 2669.00,
         "quantity": 160,
-        "product_weight": 785,
+        "product_weight": 785.00,
         "store_id": 2
       }
     }

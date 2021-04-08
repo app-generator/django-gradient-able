@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cartQuantity`()
+BEGIN
+		SELECT COUNT(*)
+        FROM app_product p, app_select s
+        WHERE s.product_id_id = p.product_id;
+END
