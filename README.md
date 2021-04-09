@@ -105,11 +105,16 @@ The project is coded using a simple and intuitive structure presented bellow:
 > Requirements for using the website
 
 - Ensure you have MYSQL server setup on your computer.
-- If you do not have it already installed, follow tutorial at the following link to do so 
+- If you do not have it installed, follow the tutorial at the following link to do so 
 - [MYSQL Tutorial](https://www.youtube.com/watch?v=GIRcpjg-3Eg&ab_channel=edureka%21) - Youtube Video
-- Now create the database, loging to your MYSQL command line tool
+- Now create the database, log in to your MYSQL command line tool
 - Create a table called "store_inventory" using the command "CREATE DATABASE store_inventory;"
 - [Connecting MYSQL to Django](https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database) - Further Information
+- Once the database has been created, copy the contents of each text file from the folder "databasescripts"
+- And paste them into empty stored procedures that you have created within the database. 
+- If you do not know how to create stored procedures in MYSQL 
+- Follow the instructions in the link below
+- [Creating Stored Procedures](https://www.youtube.com/watch?v=OPoxqvPD6Do&ab_channel=RamNJavaTutorial) - Youtube Video
 
 <br />
 
