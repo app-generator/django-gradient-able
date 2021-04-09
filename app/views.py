@@ -70,9 +70,10 @@ class productManList(APIView):
             cursor.execute("call productManufacturer('"+product_id+"')")
             results = dictfetchall(cursor)
         return Response(json.dumps(results))
-
+        
 class addProductCartList(APIView):    
     def post(self, request, format=None):
+        print("Hello")
         product_id = request.GET['product_id']
         select_product = Product.objects.filter(
             product_id=product_id)
