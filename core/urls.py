@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'remove_cart_api/$', views.removeCartList.as_view()),     
     url(r'cart_products_api/$', views.cartProductsList.as_view()),
     url(r'get_color_api/$', views.productColorsList.as_view()),
+    url(r'update_product_quantity_api/$', views.productQuantityUpdateList.as_view()),
     # App ajax api's
     path('get_category/', views.get_category, name='get-category'),
     path('get_products/', views.get_products, name='get-products'),
@@ -34,7 +35,8 @@ urlpatterns = [
     path('cart_quantity/', views.cart_quantity, name='cart-quantity'),     
     path('remove_cart/', views.remove_cart, name='remove-cart'),     
     path('cart_products/', views.cart_products, name='cart-products'),
-    path('get_color/', views.get_color, name='get-color'),          
+    path('get_color/', views.get_color, name='get-color'),      
+    path('update_product_quantity/', views.update_product_quantity, name='update-product-quantity'),              
     path("", include("authentication.urls")), # Auth routes - login / register
     path("", include("app.urls")),             # UI Kits Html files
 ]

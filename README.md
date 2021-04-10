@@ -16,10 +16,48 @@ $
 $ # Install modules - SQLite Storage
 $ pip3 install -r requirements.txt
 $
+$ # Finally, create an administrative user to use the admin interface
+$ python manage.py createsuperuser
+$ # You will be prompted for a username, an email address, and a password for your user
+$
+```
+<br />
+
+> Requirements for using the website
+
+- Ensure you have MYSQL server setup on your computer.
+- If you do not have it installed, follow the tutorial at the following link to do so. 
+- [MySQL Tutorial](https://www.youtube.com/watch?v=GIRcpjg-3Eg&ab_channel=edureka%21) - Youtube Video
+- Now create the database, log in to your MYSQL command line tool.
+- Create a database called "store_inventory" using the command "CREATE DATABASE store_inventory;"
+- We now need to create a user that will access and use our database, do this with the command below:
+- "CREATE USER 'djangouser'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"
+- Next, let the database know that our djangouser should have complete access to the database we set up:
+- "GRANT ALL ON store_inventory.* TO 'djangouser'@'%';"
+- We need to flush the privileges so that the current instance of MySQL knows about the recent changes we’ve made:
+- "FLUSH PRIVILEGES;"
+- Once you have made these changes, restart your MySQL server. If you have any difficulties follow the link below:
+- [Connecting MySQL to Django](https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database) - Further Information
+- Once the database has been created, copy the contents of each text file from the folder "databasescripts"...
+- And paste them into empty stored procedures that you have created within the database. 
+- If you do not know how to create stored procedures in MYSQL...
+- Follow the instructions in the link below.
+- [Creating Stored Procedures](https://www.youtube.com/watch?v=OPoxqvPD6Do&ab_channel=RamNJavaTutorial) - Youtube Video.
+
+<br />
+
+```bash
 $ # Create tables
 $ python manage.py makemigrations
 $ python manage.py migrate
 $
+```
+<br />
+
+- Now we need to add tuples to our created database, do this by opening the file "loadTuples.txt" from the folder "databasescripts".
+- Copy and enter each line from this text file into the command line. This should create tuples in your database.
+
+```bash
 $ # Start the application (development mode)
 $ python manage.py runserver # default port 8000
 $
@@ -90,7 +128,8 @@ The project is coded using a simple and intuitive structure presented bellow:
    |    |-- productColors.txt              # Stored procedure: all possible colors of product
    |    |-- productManufacturer.txt        # Stored procedure: manufacturer of product
    |    |-- productPrice.txt               # Stored procedure: price of product
-   |    |-- selectionSubmitted.txt         # Stored procedure: product store, name, description, and manufacturer 
+   |    |-- selectionSubmitted.txt         # Stored procedure: product store, name, description, and quantity 
+   |    |-- loadTuples.txt                 # Commands to load tuples into database
    |
    |-- requirements.txt                    # Development modules - SQLite storage
    |
@@ -99,22 +138,6 @@ The project is coded using a simple and intuitive structure presented bellow:
    |
    |-- ************************************************************************
 ```
-
-<br />
-
-> Requirements for using the website
-
-- Ensure you have MYSQL server setup on your computer.
-- If you do not have it installed, follow the tutorial at the following link to do so 
-- [MYSQL Tutorial](https://www.youtube.com/watch?v=GIRcpjg-3Eg&ab_channel=edureka%21) - Youtube Video
-- Now create the database, log in to your MYSQL command line tool
-- Create a table called "store_inventory" using the command "CREATE DATABASE store_inventory;"
-- [Connecting MYSQL to Django](https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database) - Further Information
-- Once the database has been created, copy the contents of each text file from the folder "databasescripts"
-- And paste them into empty stored procedures that you have created within the database. 
-- If you do not know how to create stored procedures in MYSQL 
-- Follow the instructions in the link below
-- [Creating Stored Procedures](https://www.youtube.com/watch?v=OPoxqvPD6Do&ab_channel=RamNJavaTutorial) - Youtube Video
 
 <br />
 

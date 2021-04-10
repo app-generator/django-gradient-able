@@ -73,7 +73,6 @@ class productManList(APIView):
         
 class addProductCartList(APIView):    
     def post(self, request, format=None):
-        print("Hello")
         product_id = request.GET['product_id']
         select_product = Product.objects.filter(
             product_id=product_id)
@@ -129,6 +128,18 @@ class productColorsList(APIView):
             cursor.execute("call productColors('"+product_id+"')")
             results = dictfetchall(cursor)
         return HttpResponse(json.dumps(results))
+
+class productQuantityUpdateList(APIView):
+    def get(self, request):
+        product_id = request.GET['product_id']
+        quantityChange = int(request.GET['quantity'])
+        select_product = Product.objects.get(
+            product_id=product_id)
+        temp = select_product.quantity + quantityChange
+        select_product.quantity = temp
+        select_product.save(update_fields=['quantity'])
+        result = json.dumps({'quantity': temp})
+        return HttpResponse(result, content_type="application/json")
 
 @login_required(login_url="/login/")
 def index(request):
@@ -265,13 +276,13 @@ def cart_quantity(request):
 def remove_cart(request):
     if request.method == "GET" and request.is_ajax():
         product_id = request.GET.get("product_id", None)
-        select_product = Product.objects.filter(
+        select_product = Product.objects.get(
             product_id=product_id)
-        customer_id = Customer.objects.filter(
+        customer_id = Customer.objects.get(
             customer_id=1)
-        instance = Select.objects.filter(customer_id=customer_id[0], 
-            product_id=select_product[0])
-        instance.delete()
+        instance = Select.objects.filter(customer_id=customer_id, 
+            product_id=select_product)
+        instance[0].delete()
         return redirect('/')
 
 def cart_products(request):
@@ -290,5 +301,19 @@ def get_color(request):
             cursor.execute("call productColors('"+product_id+"')")
             results = dictfetchall(cursor)
         return HttpResponse(json.dumps(results), content_type="application/json")
+    else:
+        return redirect('/')
+
+def update_product_quantity(request):
+    if request.method == "GET" and request.is_ajax():
+        product_id = request.GET['product_id']
+        quantityChange = int(request.GET['quantity'])
+        select_product = Product.objects.get(
+            product_id=product_id)
+        temp = select_product.quantity + quantityChange
+        select_product.quantity = temp
+        select_product.save(update_fields=['quantity'])
+        result = json.dumps({'quantity': temp})
+        return HttpResponse(result, content_type="application/json")
     else:
         return redirect('/')

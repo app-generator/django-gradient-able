@@ -95,6 +95,7 @@
                                 <h5 class="text-black">Store Available <span class="float-right storeAvailable"></span></h5>
                                 <h5 class="text-black">Price <span class="float-right productPrice"></span></h5>
                                 <h5 class="text-black">Manufacturer <span class="float-right productManufacturer"></span></h5>
+                                <h5 class="text-black">Quantity Available <span class="float-right productQuantity"></span></h5>
                                 <h5 class="text-black">Product Description <span class="float-right temp"></span></h5>
                                 <pre><h3 class="text-black"></h3></pre><span class="float-right productDescription"></span></h3>
                                 <button type="button" id="addcart" class="btn btn-primary mx-auto">Add to Cart</button>
@@ -197,6 +198,18 @@
         target.style.height = 400+'px';
     }
 
+    function updateProductQuantity(quantity){
+        data = {'product_id': globalProduct_id, 'quantity': quantity};
+        $.ajax({
+            type: "GET",
+            url: "/update_product_quantity/",
+            data: data,
+            success: function(result) {
+                $(".productQuantity").text(result.quantity);
+            },					
+        });
+    }
+
     function getCartProducts(){
         var $productvar = $("#productRem");
         var product_name;
@@ -239,6 +252,7 @@
             success: function(result) {
                 updateCart();
                 getCartProducts();
+                updateProductQuantity(-1);
             },
         });
     });
@@ -253,6 +267,7 @@
             success: function(result) {
                 updateCart();
                 getCartProducts();
+                updateProductQuantity(1);
             },
         });
     });

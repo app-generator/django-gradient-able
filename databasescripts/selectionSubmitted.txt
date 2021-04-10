@@ -2,7 +2,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `selectionSubmitted`(
 IN productID int
 )
 BEGIN
-		SELECT p.product_name, s.store_name, i.product_description
+		SELECT p.product_name, s.store_name, i.product_description, p.quantity
         FROM app_product p, app_information_page i, app_physical_store s
         WHERE p.product_id = productID AND i.product_id_id = productID AND
         s.store_id = p.store_id_id;
