@@ -3,12 +3,12 @@
 
 > Requirements for using the website
 - Python 3 is required. Follow the appropriate link below to install it.
-- [Windows based System](https://www.python.org/downloads/)
-- [Linus based System](https://docs.python-guide.org/starting/install3/linux/)
+- [Windows based System](https://www.python.org/downloads/) - Python Windows installation
+- [Linus based System](https://docs.python-guide.org/starting/install3/linux/) - :inux Windows installation
 - Ensure you have MYSQL server setup on your computer.
 - If you do not have it installed, follow the tutorial at the following link to do so. 
 - [MySQL Tutorial](https://www.youtube.com/watch?v=GIRcpjg-3Eg&ab_channel=edureka%21) - Youtube Video
-- Now create the database, log in to your MYSQL command line tool.
+- Now to create the database, log in to your MYSQL command line tool.
 - Create a database called "store_inventory" using the command "CREATE DATABASE store_inventory;"
 - We now need to create a user that will access and use our database, do this with the command below:
 - "CREATE USER 'djangouser'@'%' IDENTIFIED WITH mysql_native_password BY 'password';"
@@ -18,7 +18,7 @@
 - "FLUSH PRIVILEGES;"
 - Once you have made these changes, restart your MySQL server. If you have any difficulties follow the link below:
 - [Connecting MySQL to Django](https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database) - Further Information
-- Once the database has been created, copy the contents of each text file from the folder "databasescripts"...
+- Once the database has been created, copy the contents of each text file from the folder "./databasescripts"...
 - And paste them into empty stored procedures that you have created within the database. 
 - If you do not know how to create stored procedures in MYSQL...
 - Follow the instructions in the link below.
@@ -42,19 +42,20 @@ $
 $ # Install modules
 $ pip3 install -r requirements.txt
 $
-$ # Finally, create an administrative user to use the admin interface
-$ python manage.py createsuperuser
-$ # You will be prompted for a username, an email address, and a password for your user
 $
 $ # Create tables
 $ python manage.py makemigrations
 $ python manage.py migrate
 $
+$ # Finally, create an administrative user to use the admin interface
+$ python manage.py createsuperuser
+$ # You will be prompted for a username, an email address, and a password for your user
+$
 ```
 <br />
 
-- Now we need to add tuples to our created database, do this by opening the file "loadTuples.txt" from the folder "databasescripts".
-- Copy and enter each line from this text file into the command line. This should create tuples in your database.
+- Now we need to add tuples to our created database, do this by opening the file "loadTuples.txt"
+- Copy and enter each line individually from the text file "loadTuples.txt" IN THE ORDER GIVEN into the command line until the end of file has been reached. This should create tuples in your database.
 
 ```bash
 $ # Start the application (development mode)
