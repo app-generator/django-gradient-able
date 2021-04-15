@@ -170,4 +170,4 @@ The project is coded using a simple and intuitive structure presented bellow:
 <br />
 
 ---
-[Django Dashboard](https://appseed.us/admin-dashboards/django?ref=gh) Gradient Able - Provided by **AppSeed [App Generator](https://appseed.us/app-generator)**.
+[Gradient Able](https://appseed.us/admin-dashboards/django-dashboard-gradient-pro) [Django](https://appseed.us/admin-dashboards/django) - Provided by **AppSeed [App Generator](https://appseed.us/app-generator)**.
