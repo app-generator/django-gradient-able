@@ -245,16 +245,19 @@
 
     $("#addcart").click(function(event) {
         data = {'product_id': globalProduct_id};
-        $.ajax({
-            url: "/add_product_cart/",
-            method : "POST",
-            data: data,
-            success: function(result) {
-                updateCart();
-                getCartProducts();
-                updateProductQuantity(-1);
-            },
-        });
+        console.log($(".productQuantity").text());
+        if($(".productQuantity").text() != "Out of Stock"){
+            $.ajax({
+                url: "/add_product_cart/",
+                method : "POST",
+                data: data,
+                success: function(result) {
+                    updateCart();
+                    getCartProducts();
+                    updateProductQuantity(-1);
+                },
+            });
+        }
     });
 
     $("#removecart").click(function(event) {

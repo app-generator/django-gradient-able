@@ -311,9 +311,13 @@ def update_product_quantity(request):
         select_product = Product.objects.get(
             product_id=product_id)
         temp = select_product.quantity + quantityChange
-        select_product.quantity = temp
-        select_product.save(update_fields=['quantity'])
-        result = json.dumps({'quantity': temp})
-        return HttpResponse(result, content_type="application/json")
+        if temp > 0:
+            select_product.quantity = temp
+            select_product.save(update_fields=['quantity'])
+            result = json.dumps({'quantity': temp})
+            return HttpResponse(result, content_type="application/json")
+        else: 
+            result = json.dumps({'quantity': 'Out of Stock'})
+            return HttpResponse(result, content_type="application/json")
     else:
         return redirect('/')
