@@ -1,10 +1,20 @@
 ## How to use it
+
+<br />
+
+```bash
+$ # Get the code
+$ git clone https://github.com/muusfa/CPSC471_Project.git
+$ cd CPSC471_project
+$
+```
+
 <br />
 
 > Requirements for using the website
 - Python 3 is required. Follow the appropriate link below to install it.
 - [Windows based System](https://www.python.org/downloads/) - Python Windows installation
-- [Linus based System](https://docs.python-guide.org/starting/install3/linux/) - :inux Windows installation
+- [Linux based System](https://docs.python-guide.org/starting/install3/linux/) - Python Linux installation
 - Ensure you have MYSQL server setup on your computer.
 - If you do not have it installed, follow the tutorial at the following link to do so. 
 - [MySQL Tutorial](https://www.youtube.com/watch?v=GIRcpjg-3Eg&ab_channel=edureka%21) - Youtube Video
@@ -129,7 +139,8 @@ The project is coded using a simple and intuitive structure presented bellow:
    |    |-- productManufacturer.txt        # Stored procedure: manufacturer of product
    |    |-- productPrice.txt               # Stored procedure: price of product
    |    |-- selectionSubmitted.txt         # Stored procedure: product store, name, description, and quantity 
-   |    |-- loadTuples.txt                 # Commands to load tuples into database
+   |
+   |-- loadTuples.txt                      # Commands to load tuples into database
    |
    |-- requirements.txt                    # Development modules - SQLite storage
    |
