@@ -18,8 +18,7 @@ Open-source **[Django Dashboard](https://appseed.us/admin-dashboards/django)** g
 > Links
 
 - [Gradient Able Django](https://appseed.us/admin-dashboards/django-gradient-able) - Product page
-- [Gradient Able Django Demo](https://django-gradient-able.appseed-srv1.com/) - LIVE App
-- [Gradient Able Django PRO](https://appseed.us/admin-dashboards/django-dashboard-gradient-pro) - the premium version: more page, components and LIVE Support
+- [Gradient Able Django](https://django-gradient-able.appseed-srv1.com/) - LIVE Demo
 
 <br />
 
