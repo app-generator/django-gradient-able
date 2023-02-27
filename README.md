@@ -208,7 +208,7 @@ When the project requires customization, we need to copy the original file that 
 - ✅ `Step 2`: configure the project to use this new template directory
   - `core/settings.py` TEMPLATES section
 - ✅ `Step 3`: copy the `index.html` from the original location (inside your ENV) and save it to the `home/templates` DIR
-  - Source PATH: `<YOUR_ENV>/LIB/admin_black_pro/pages/index.html`
+  - Source PATH: `<YOUR_ENV>/LIB/admin_gradient/pages/index.html`
   - Destination PATH: `<PROJECT_ROOT>home/templates/pages/index.html`
 
 > To speed up all these steps, the **codebase is already configured** (`Steps 1, and 2`) and a `custom dashboard` can be found at this location:
