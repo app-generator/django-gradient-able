@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.0.6] 2023-02-27
+### Changes
+
+- Move to theme-based pattern
+  - [Django Datta Gradient](https://github.com/app-generator/django-admin-gradient)
+- 🚀 `Deployment` 
+  - `CI/CD` flow via `Render`
+
 ## [1.0.5] 2022-06-09
 ### Improvements
 
