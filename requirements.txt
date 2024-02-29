@@ -1,8 +1,20 @@
-django
-gunicorn
-python-dotenv
-whitenoise
+# Core
+django==4.2.9
+python-dotenv==1.0.1
+str2bool==1.1
+
+# UI 
 django-admin-gradient==1.0.2
 
+# Tooling
+django-dynamic-datatb==1.0.25
+django-api-generator==1.0.17
+django-debug-toolbar==4.2.0
+
+# Deployment
+whitenoise==6.6.0
+gunicorn==21.2.0
+
+# DB Layer
 # psycopg2-binary
 # mysqlclient

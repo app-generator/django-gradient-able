@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.7] 2024-02-29
+### Changes
+
+- Update Dependencies 
+- Added PRO Section (readme)
+
 ## [1.0.6] 2023-02-27
 ### Changes
 
