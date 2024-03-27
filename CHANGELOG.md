@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.9] 2024-03-27
+### Changes
+
+- Enable `DEBUG` mode by default 
+- Update `.gitignore`
+
 ## [1.0.8] 2024-03-05
 ### Changes
 
