@@ -23,7 +23,7 @@ Open-source **[Django Dashboard](https://appseed.us/admin-dashboards/django/)** 
 | -                                     | ✅ **Extended User Profiles**                                                             |  -                                  |
 | -                                     | ✅ `Private REPO Access`                                                                  |  -                                  |
 | -                                     | ✅ **PRO Support** - [Email & Discord](https://appseed.us/support/)                       |  -                                  |
-| -                                     | ✅ Deployment Assistance                                                                  |  -                                  |
+| -                                     | ✅ [AWS, DO, Azure Deploy Assistance](https://deploypro.dev/)                             |  -                                  |
 | ------------------------------------  | ------------------------------------                                                      | ------------------------------------|
 | ✓ [LIVE Demo](https://django-gradient-able.appseed-srv1.com/)  | 🚀 [LIVE Demo](https://django-gradient-pro.onrender.com/) | 🛒 `Order`: **[$3,999](https://appseed.gumroad.com/l/rocket-package)** (GUMROAD) |   
 
