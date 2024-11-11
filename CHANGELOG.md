@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.0.11] 2024-11-11
+### Changes
+
+- Update RM Links:
+  - 👉 [Django Gradient Able](https://app-generator.dev/docs/products/django/gradient-able/index.html) - **Complete Documentation**
+  - 👉 [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) - Gradient Able
+  - 👉 [Get Support](https://app-generator.dev/ticket/create/) via Email and Discord
+
 ## [1.0.10] 2024-05-18
 ### Changes
 
