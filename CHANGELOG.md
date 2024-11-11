@@ -5,7 +5,7 @@
 
 - Update RM Links:
   - 👉 [Django Gradient Able](https://app-generator.dev/docs/products/django/gradient-able/index.html) - **Complete Documentation**
-  - 👉 [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) - Gradient Able
+  - 👉 [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) - Product Page
   - 👉 [Get Support](https://app-generator.dev/ticket/create/) via Email and Discord
 
 ## [1.0.10] 2024-05-18
