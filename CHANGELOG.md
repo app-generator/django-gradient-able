@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.0.12] 2024-11-26
+### Changes
+
+> Update RM Links
+
+- 👉 [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) - `Product Page`
+- 👉 [Django Gradient Able Documentation](https://app-generator.dev/docs/products/django/gradient-able/index.html) - `Complete Information` and Support Links
+  - [Getting Started with Django](https://app-generator.dev/docs/technologies/django/index.html) - a `comprehensive tutorial`
+  - `Configuration`: Install Tailwind/Flowbite, Prepare Environment, Setting up the Database 
+  - `Start with Docker`
+  - `Manual Build`
+  - `Start the project`
+  - `Deploy on Render`
+
 ## [1.0.11] 2024-11-11
 ### Changes
 
