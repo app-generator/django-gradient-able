@@ -16,10 +16,10 @@ The product is designed to deliver the best possible user experience with highly
 
 <br />
 
-## Add Features with [Django App Generator](https://app-generator.dev/tools/django-generator/)
+### Customize with [Django App Generator - Gradient Design](https://app-generator.dev/tools/django-generator/gradient/)
 
 - Access the [App Generator](https://app-generator.dev/tools/django-generator/) page
-- Select Gradient Able as the preferred design
+- Select **Gradient Able** as the preferred design
 - (Optional) Design Database: edit models and fields
 - (Optional) Edit the fields for the extended user model
 - (Optional) Enable OAuth for GitHub

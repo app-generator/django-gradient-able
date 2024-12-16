@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.14] 2024-12-16
+### Changes
+
+- Preselect the design in the Generator:
+  - [Django App Generator - Gradient Design](https://app-generator.dev/tools/django-generator/gradient/)
+
 ## [1.0.13] 2024-12-15
 ### Changes
 
