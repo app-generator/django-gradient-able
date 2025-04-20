@@ -1,0 +1,132 @@
+{% load i18n static admin_gradient %}
+<ul class="nav pcoded-inner-navbar ">
+  <li class="nav-item pcoded-menu-caption">
+    <label>Navigation</label>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'index' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'dynamic_dt' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-layout"></i></span><span class="pcoded-mtext">Dynamic Tables</span></a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'dynamic_api' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-cpu"></i></span><span class="pcoded-mtext">Dynamic API</span></a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'charts' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-bar-chart-2"></i></span><span class="pcoded-mtext">Charts</span></a>
+  </li>
+
+
+  {% if not request.user.is_authenticated %}
+  <li class="nav-item pcoded-hasmenu">
+    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span
+        class="pcoded-mtext">Authentication</span></a>
+    <ul class="pcoded-submenu">
+      <li><a href="{% url 'auth_signin' %}" >Sign IN</a></li>
+      <li><a href="{% url 'auth_signup' %}" >Sign UP</a></li>
+    </ul>
+  </li>
+
+  {% endif %}
+
+  {% admin_get_menu as app_list %}
+  {% if app_list %}
+  {% for app in app_list %}
+  {% if app.has_perms and not app.pinned %}
+  <li class="nav-item pcoded-hasmenu">
+    <a class="nav-link">
+      <span class="pcoded-micon"><i class="feather {{ app.icon }}"></i></span>
+      <span
+        class="pcoded-mtext">{{ app.label|slice:10 }}{% if app.label|length > 10 %}..{% endif %}</span>
+    </a>
+
+    {% if app.models %}
+    <ul class="pcoded-submenu">
+      {% for model in app.models %}
+      {% if model.url %}
+      <li class="">
+        <a class="" href="{{ model.url }}">
+          {{ model.label }}
+        </a>
+      </li>
+      {% else %}
+      <li class="">{{ model.label }}</li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {% if request.user.is_authenticated and not request.user.is_superuser %}
+  <li class="nav-item pcoded-menu-caption">
+    <label>UI Element</label>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'bc_typography' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-box"></i></span><span class="pcoded-mtext">Typography</span></a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'icon_feather' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-feather"></i></span><span class="pcoded-mtext">Icons</span></a>
+  </li>
+  <li class="nav-item pcoded-menu-caption">
+    <label>table</label>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'tbl_bootstrap' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Bootstrap table</span></a>
+  </li>
+  <li class="nav-item pcoded-menu-caption">
+    <label>Chart & Maps</label>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'chart_apex' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'map_google' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a>
+  </li>
+  <li class="nav-item pcoded-menu-caption">
+    <label>Pages</label>
+  </li>
+  <li class="nav-item">
+    <a href="{% url 'user_profile' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-user"></i></span><span class="pcoded-mtext">User Profile</span></a>
+  </li>
+  <li class="nav-item pcoded-hasmenu">
+    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span
+        class="pcoded-mtext">Authentication</span></a>
+    <ul class="pcoded-submenu">
+      <li><a href="{% url 'auth_signup' %}" target="_blank">Sign up</a></li>
+      <li><a href="{% url 'auth_signin' %}" target="_blank">Sign in</a></li>
+    </ul>
+  </li>
+  <li class="nav-item pcoded-menu-caption">
+    <label>Other</label>
+  </li>
+  <li class="nav-item pcoded-hasmenu">
+    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-menu"></i></span><span
+        class="pcoded-mtext">Menu levels</span></a>
+    <ul class="pcoded-submenu">
+      <li><a href="#">Menu Level 2.1</a></li>
+      <li class="pcoded-hasmenu">
+        <a href="#">Menu level 2.2</a>
+        <ul class="pcoded-submenu">
+          <li><a href="#">Menu level 3.1</a></li>
+          <li><a href="#">Menu level 3.2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-item"><a href="{% url 'sample_page' %}" class="nav-link "><span class="pcoded-micon"><i
+          class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>
+  {% endif %}
+</ul>
