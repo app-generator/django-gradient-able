@@ -1,18 +1,27 @@
 # Change Log
 
+## [1.0.16] 2025-04-24
+### [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) Changes
+
+- Bump [Django Gradient Able Library](https://app-generator.dev/docs/products/django-libs/theme-gradient-able.html) Version: **v1.0.5**
+- Added [Dynamic Tables](https://app-generator.dev/docs/developer-tools/dynamic-datatables.html) module
+- Added [Dynamic API](https://app-generator.dev/docs/developer-tools/dynamic-api.html) Module  
+- Added [Django CLI Module](https://app-generator.dev/docs/developer-tools/django-cli/index.html) for different internal tasks
+- [Integrate Vite](https://app-generator.dev/docs/technologies/vite/index.html) for assets management
+
 ## [1.0.15] 2025-04-01
 ### Changes
 
 - Update RM (minor)
 
 ## [1.0.14] 2024-12-16
-### Changes
+### [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) Changes
 
 - Preselect the design in the Generator:
   - [Django App Generator - Gradient Design](https://app-generator.dev/tools/django-generator/gradient/)
 
 ## [1.0.13] 2024-12-15
-### Changes
+### [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) Changes
 
 > Mention [Django App Generator](https://app-generator.dev/tools/django-generator/) Service:
 
@@ -29,7 +38,7 @@
 **The generated Django project is available as a ZIP Archive and also uploaded to GitHub.**
 
 ## [1.0.12] 2024-11-26
-### Changes
+### [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) Changes
 
 > Update RM Links
 
