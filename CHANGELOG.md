@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.17] 2025-05-12
+### [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) Changes
+
+- CONFIG.Settings/SECRET_KEY: remove randomness if not specified 
+
 ## [1.0.16] 2025-04-24
 ### [Django Gradient Able](https://app-generator.dev/product/gradient-able/django/) Changes
 
